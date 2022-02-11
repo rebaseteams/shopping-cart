@@ -9,9 +9,25 @@ import { renderItemsList } from './pages/items-list';
 import { renderItem } from './pages/items';
 import { renderCheckout } from './pages/checkout';
 import { renderPageNotFoundPage } from './pages/page-not-found';
+import { renderItemCard } from './components/item';
+import { ItemsRepo } from './dataLayer/repositories/inmemory/items';
+import { Store } from './providers/store';
+import { ItemsService } from './dataLayer/services/items';
+
+const providers = {
+  store : new Store()
+}
+
+const repositories = {
+  items : new ItemsRepo(providers.store)
+}
+
+const services = {
+  items : new ItemsService(repositories.items)
+}
 
 const Header = renderHeader();
-const ItemsList = renderItemsList();
+const ItemsList = renderItemsList(renderItemCard, services.items);
 const ItemsPage = renderItem();
 const CheckOutPage = renderCheckout();
 const PageNotFound = renderPageNotFoundPage();
