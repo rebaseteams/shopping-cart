@@ -1,13 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import { renderHeader } from './components/header';
+import { renderItemsList } from './pages/items-list';
+import { renderItem } from './pages/items';
+import { renderCheckout } from './pages/checkout';
+import { renderPageNotFoundPage } from './pages/page-not-found';
+
+const Header = renderHeader();
+const ItemsList = renderItemsList();
+const ItemsPage = renderItem();
+const CheckOutPage = renderCheckout();
+const PageNotFound = renderPageNotFoundPage();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Header />
+    <Routes>
+      <Route path='/' element={<ItemsList />} />
+      <Route path='/item/:id' element={<ItemsPage />} />
+      <Route path='/checkout' element={<CheckOutPage />} />
+      <Route path="/page-not-found" element={<PageNotFound />} />
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
