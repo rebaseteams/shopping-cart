@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { renderHeader } from './components/header';
 import { renderItemsList } from './pages/items-list';
-import { renderItem } from './pages/items';
+import { renderItem } from './pages/item';
 import { renderCheckout } from './pages/checkout';
 import { renderPageNotFoundPage } from './pages/page-not-found';
 import { renderItemCard } from './components/item';
