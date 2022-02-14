@@ -27,18 +27,29 @@ export class ItemsRepo {
         return [];
     }
 
-    createItem = ({itemName, itemImg, itemColor, itemCost}) => {
+    createItem = ({ name, images, color, price, description, priceUnit, star = 0, outOfStock, stockCount, reviewCount = 0, details, highlights, path, category, subCategory }) => {
         const items = this.getItems();
-        const item = {
+        const newItem = {
             id : uuid(),
-            itemName,
-            itemImg,
-            itemColor,
-            itemCost
+            name,
+            images,
+            color,
+            price,
+            description,
+            priceUnit,
+            star,
+            outOfStock,
+            stockCount,
+            reviewCount,
+            details,
+            highlights,
+            path,
+            category,
+            subCategory,
         }
-        items.push(item);
+        items.push(newItem);
         this.store.set('items', JSON.stringify(items));
-        return item;
+        return newItem;
     }
 
     deleteItem = (id) => {

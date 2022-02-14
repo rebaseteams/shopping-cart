@@ -12,41 +12,41 @@ describe('Items inmemory Repository', () => {
     describe('CREATE ITEM',() => {
         test('should create item successfully', () => {
             const item = itemsRepo.createItem({
-                itemName: 'item name',
-                itemImg: 'img url',
-                itemColor: 'item color',
-                itemCost: 'item cost in Rs'
+                name: 'item name',
+                images: 'img url',
+                color: 'item color',
+                price: 'item cost in Rs'
             })
-            expect(item.itemName).toContain('item name')
+            expect(item.name).toContain('item name')
             expect(item).toHaveProperty('id');
         })
     
         test('should create item with when all details not provided with undefined values', () => {
             const item = itemsRepo.createItem({
-                itemImg: 'img url',
-                itemColor: 'item color',
-                itemCost: 'item cost in Rs'
+                images: 'img url',
+                color: 'item color',
+                price: 'item cost in Rs'
             })
-            expect(item.itemName).toStrictEqual(undefined)
+            expect(item.name).toStrictEqual(undefined)
             expect(item).toHaveProperty('id');
         })
     
         test('should create two items with same data but different uuids', () => {
             const item = itemsRepo.createItem({
-                itemName: "item name",
-                itemImg: 'img url',
-                itemColor: 'item color',
-                itemCost: 'item cost in Rs'
+                name: "item name",
+                images: 'img url',
+                color: 'item color',
+                price: 'item cost in Rs'
             })
     
             const item2 = itemsRepo.createItem({
-                itemName: "item name",
-                itemImg: 'img url',
-                itemColor: 'item color',
-                itemCost: 'item cost in Rs'
+                name: "item name",
+                images: 'img url',
+                color: 'item color',
+                price: 'item cost in Rs'
             })
             expect(item.id).not.toEqual(item2.id);
-            expect(item.itemName).toEqual(item2.itemName);
+            expect(item.name).toEqual(item2.name);
         })
     })
 
@@ -58,28 +58,55 @@ describe('Items inmemory Repository', () => {
     
         test('should return one item in array on calling get items with one item stored', () => {
             const item = itemsRepo.createItem({
-                itemName: 'item name',
-                itemImg: 'img url',
-                itemColor: 'item color',
-                itemCost: 'item cost in Rs'
+                name: 'item name',
+                images: 'img url',
+                color: 'item color',
+                price: 'item cost in Rs',
+                description: 'nice product',
+                priceUnit: '$',
+                stockCount: 100,
+                outOfStock: false,
+                details: 'Dtails',
+                highlights: ['hl1', 'hl2'],
+                path: [],
+                category: '',
+                subCategory: ''
             })
             const items = itemsRepo.getItems();
-            expect(items).toStrictEqual([item]);
+            expect(items).toStrictEqual([ item ]);
         })
     
         test('should return multiple items in array on calling get items when multiple items stored', () => {
             const item = itemsRepo.createItem({
-                itemName: 'item name',
-                itemImg: 'img url',
-                itemColor: 'item color',
-                itemCost: 'item cost in Rs'
-            });
+                name: 'item name',
+                images: 'img url',
+                color: 'item color',
+                price: 'item cost in Rs',
+                description: 'nice product',
+                priceUnit: '$',
+                stockCount: 100,
+                outOfStock: false,
+                details: 'Dtails',
+                highlights: ['hl1', 'hl2'],
+                path: [],
+                category: '',
+                subCategory: ''
+            })
             const item2 = itemsRepo.createItem({
-                itemName: 'item name',
-                itemImg: 'img url',
-                itemColor: 'item color',
-                itemCost: 'item cost in Rs'
-            });
+                name: 'item two name',
+                images: 'img url',
+                color: 'item color',
+                price: 'item cost in Rs',
+                description: 'nice product',
+                priceUnit: '$',
+                stockCount: 100,
+                outOfStock: false,
+                details: 'Dtails',
+                highlights: ['hl1', 'hl2'],
+                path: [],
+                category: '',
+                subCategory: ''
+            })
             const items = itemsRepo.getItems();
             expect(items).toStrictEqual([item, item2]);
         })
@@ -94,10 +121,10 @@ describe('Items inmemory Repository', () => {
     
         test('should delete item that exists', () => {
             const item = itemsRepo.createItem({
-                itemName: 'item name',
-                itemImg: 'img url',
-                itemColor: 'item color',
-                itemCost: 'item cost in Rs'
+                name: 'item name',
+                images: 'img url',
+                color: 'item color',
+                price: 'item cost in Rs'
             });
             itemsRepo.deleteItem(item.id);
             const items = itemsRepo.getItems();
@@ -106,10 +133,10 @@ describe('Items inmemory Repository', () => {
     })
 
     const itemData = {
-        itemName: 'item name',
-        itemImg: 'img url',
-        itemColor: 'item color',
-        itemCost: 'item cost in Rs'
+        name: 'item name',
+        images: 'img url',
+        color: 'item color',
+        price: 'item cost in Rs'
     }
     describe('Get Item', () => {
         test('should return null if the item not present', () => {
@@ -122,10 +149,10 @@ describe('Items inmemory Repository', () => {
             const item = itemsRepo.createItem(itemData);
             // Getting back the item 
             const result = itemsRepo.getItem(item.id);
-            expect(result.itemName).toStrictEqual(itemData.itemName);
-            expect(result.itemImg).toStrictEqual(itemData.itemImg);
-            expect(result.itemColor).toStrictEqual(itemData.itemColor);
-            expect(result.itemCost).toStrictEqual(itemData.itemCost);
+            expect(result.name).toStrictEqual(itemData.name);
+            expect(result.images).toStrictEqual(itemData.images);
+            expect(result.color).toStrictEqual(itemData.color);
+            expect(result.price).toStrictEqual(itemData.price);
         })
     })
 })

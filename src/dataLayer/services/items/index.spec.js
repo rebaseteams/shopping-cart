@@ -14,20 +14,20 @@ describe('Items Service', () =>{
         describe('CREATE ITEM', () => {
             test('should create item successfully', () => {
                 const item =  itemsService.createItem({
-                    itemName : 'item name',
-                    itemImg : 'img url',
-                    itemColor : 'item color', 
-                    itemCost : 'item cost in Rs'
+                    name : 'item name',
+                    images : 'img url',
+                    color : 'item color', 
+                    price : 'item cost in Rs'
                 })
-                expect(item.itemName).toContain('item name')
+                expect(item.name).toStrictEqual('item name')
                 expect(item).toHaveProperty('id');
             })
     
             test('should create item with when all details not provided with undefined values', () => {
                 const item =  itemsService.createItem({
-                    itemImg : 'img url',
-                    itemColor : 'item color', 
-                    itemCost : 'item cost in Rs'
+                    images : 'img url',
+                    color : 'item color', 
+                    price : 'item cost in Rs'
                 })
                 expect(item.itemName).toStrictEqual(undefined)
                 expect(item).toHaveProperty('id');
@@ -60,28 +60,55 @@ describe('Items Service', () =>{
     
             test('should return one item in array on calling get items with one item stored', () => {
                 const item =  itemsService.createItem({
-                    itemName : 'item name',
-                    itemImg : 'img url',
-                    itemColor : 'item color', 
-                    itemCost : 'item cost in Rs'
+                    name: 'item name',
+                    images: 'img url',
+                    color: 'item color',
+                    price: 'item cost in Rs',
+                    description: 'nice product',
+                    priceUnit: '$',
+                    stockCount: 100,
+                    outOfStock: false,
+                    details: 'Dtails',
+                    highlights: ['hl1', 'hl2'],
+                    path: [],
+                    category: '',
+                    subCategory: ''
                 })
                 const items = itemsService.getItems();
                 expect(items).toStrictEqual([item]);
             })
     
             test('should return multiple items in array on calling get items when multiple items stored', () => {
-                const item =  itemsService.createItem({
-                    itemName : 'item name',
-                    itemImg : 'img url',
-                    itemColor : 'item color', 
-                    itemCost : 'item cost in Rs'
-                });
-                const item2 =  itemsService.createItem({
-                    itemName : 'item name',
-                    itemImg : 'img url',
-                    itemColor : 'item color', 
-                    itemCost : 'item cost in Rs'
-                });
+                const item = itemsService.createItem({
+                    name: 'item name',
+                    images: 'img url',
+                    color: 'item color',
+                    price: 'item cost in Rs',
+                    description: 'nice product',
+                    priceUnit: '$',
+                    stockCount: 100,
+                    outOfStock: false,
+                    details: 'Dtails',
+                    highlights: ['hl1', 'hl2'],
+                    path: [],
+                    category: '',
+                    subCategory: ''
+                })
+                const item2 = itemsService.createItem({
+                    name: 'item two name',
+                    images: 'img url',
+                    color: 'item color',
+                    price: 'item cost in Rs',
+                    description: 'nice product',
+                    priceUnit: '$',
+                    stockCount: 100,
+                    outOfStock: false,
+                    details: 'Dtails',
+                    highlights: ['hl1', 'hl2'],
+                    path: [],
+                    category: '',
+                    subCategory: ''
+                })
                 const items = itemsService.getItems();
                 expect(items).toStrictEqual([item, item2]);
             })
@@ -96,10 +123,10 @@ describe('Items Service', () =>{
     
             test('should delete item that exists', () => {
                 const item =  itemsService.createItem({
-                    itemName : 'item name',
-                    itemImg : 'img url',
-                    itemColor : 'item color', 
-                    itemCost : 'item cost in Rs'
+                    name : 'item name',
+                    images : 'img url',
+                    color : 'item color', 
+                    price : 'item cost in Rs'
                 });
                 itemsService.deleteItem(item.id);
                 const items = itemsService.getItems();
