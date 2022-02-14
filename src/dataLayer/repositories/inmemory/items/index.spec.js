@@ -50,7 +50,7 @@ describe('Items inmemory Repository', () => {
         })
     })
 
-    describe('GET ITEM', () => {
+    describe('GET ITEMs', () => {
         test('should return empty array when calling get items with no items stored', () => {
             const items = itemsRepo.getItems();
             expect(items).toStrictEqual([]);
@@ -102,6 +102,30 @@ describe('Items inmemory Repository', () => {
             itemsRepo.deleteItem(item.id);
             const items = itemsRepo.getItems();
             expect(items).toStrictEqual([]);
+        })
+    })
+
+    const itemData = {
+        itemName: 'item name',
+        itemImg: 'img url',
+        itemColor: 'item color',
+        itemCost: 'item cost in Rs'
+    }
+    describe('Get Item', () => {
+        test('should return null if the item not present', () => {
+            const item = itemsRepo.getItem('not present');
+            expect(item).toStrictEqual(null);
+        })
+
+        test('should return item if the item present', () => {
+            // Creating item First
+            const item = itemsRepo.createItem(itemData);
+            // Getting back the item 
+            const result = itemsRepo.getItem(item.id);
+            expect(result.itemName).toStrictEqual(itemData.itemName);
+            expect(result.itemImg).toStrictEqual(itemData.itemImg);
+            expect(result.itemColor).toStrictEqual(itemData.itemColor);
+            expect(result.itemCost).toStrictEqual(itemData.itemCost);
         })
     })
 })
