@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { BreadCrumb } from "../../components/breadcrumb";
 import { Stars } from "../../components/stars";
 
@@ -38,8 +40,14 @@ const defaultProduct = {
   ],
   path: defaultPath,
 };
-export function renderItem(product = defaultProduct) {
+export function renderItem(itemsService, product = defaultProduct) {
   return function Item() {
+    const { id } = useParams();
+    useEffect(() => {
+      const item = itemsService.getItem(id);
+      console.log(item);
+    });
+    console.log(id);
     const onBuy = () => {  
       alert('On Buy Under Development');
     }
@@ -85,7 +93,7 @@ export function renderItem(product = defaultProduct) {
                     <p className="sr-only">4 out of 5 stars</p>
                     <a
                       href="#"
-                      classNameName="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                      className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
                     >
                       {product.reviewCount} review
                     </a>
@@ -150,7 +158,7 @@ function renderHighlights (product) {
                       return (
                         <li
                           key={`highlight${index}`}
-                          classNameName="text-gray-400"
+                          className="text-gray-400"
                         >
                           <span className="text-gray-600">{h}</span>
                         </li>

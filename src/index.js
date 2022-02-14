@@ -29,7 +29,7 @@ const services = {
 
 const Header = renderHeader();
 const ItemsList = renderItemsList(renderItemCard, services.items);
-const ItemsPage = renderItem();
+const ItemPage = renderItem(services.items);
 const CheckOutPage = renderCheckout();
 const PageNotFound = renderPageNotFoundPage();
 
@@ -40,7 +40,7 @@ ReactDOM.render(
     <Header />
     <Routes>
       <Route path='/' element={<ItemsList />} />
-      <Route path='/item/:id' element={<ItemsPage />} />
+      <Route path='/item/:id' element={<ItemPage />} />
       <Route path='/checkout' element={<CheckOutPage />} />
       <Route path="/page-not-found" element={<PageNotFound />} />
       <Route path="*" element={<PageNotFound />} />

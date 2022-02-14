@@ -4,6 +4,10 @@ export class ItemsService {
         this.itemsRepo = itemsRepo;
     }
 
+    getItem = (id) => {
+        return this.itemsRepo.getItem(id);
+    }
+
     getItems = () => {
         return this.itemsRepo.getItems();
     }
