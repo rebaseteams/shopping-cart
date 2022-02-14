@@ -13,6 +13,7 @@ import { renderItemCard } from './components/item';
 import { ItemsRepo } from './dataLayer/repositories/inmemory/items';
 import { Store } from './providers/store';
 import { ItemsService } from './dataLayer/services/items';
+import { seedItems } from './utils/seeder/items';
 
 const providers = {
   store : new Store()
@@ -31,6 +32,8 @@ const ItemsList = renderItemsList(renderItemCard, services.items);
 const ItemsPage = renderItem();
 const CheckOutPage = renderCheckout();
 const PageNotFound = renderPageNotFoundPage();
+
+seedItems(services.items);
 
 ReactDOM.render(
   <BrowserRouter>
