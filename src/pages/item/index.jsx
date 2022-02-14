@@ -44,17 +44,17 @@ export function renderItem(itemsService, product = defaultProduct) {
   return function Item() {
     const { id } = useParams();
     useEffect(() => {
-      const item = itemsService.getItem(id);
+      const item = itemsService.getItems();
       console.log(item);
     });
     console.log(id);
-    const onBuy = () => {  
-      alert('On Buy Under Development');
-    }
+    const onBuy = () => {
+      alert("On Buy Under Development");
+    };
 
     const onAddCart = () => {
-      alert('On Add Cart Under Development');
-    } 
+      alert("On Add Cart Under Development");
+    };
     return (
       <div className="bg-white">
         <BreadCrumb path={product.path} name={product.name} />
@@ -99,11 +99,11 @@ export function renderItem(itemsService, product = defaultProduct) {
                     </a>
                   </div>
                 </div>
-                { renderForm(onBuy, onAddCart) }
+                {renderForm(onBuy, onAddCart)}
               </div>
 
               <div className="py-6">
-                { renderHighlights(product) }
+                {renderHighlights(product)}
                 <div className="py-6">
                   <h2 className="text-sm font-bold text-gray-900">Details</h2>
                   <div className="mt-4 space-y-6">
@@ -119,52 +119,50 @@ export function renderItem(itemsService, product = defaultProduct) {
   };
 }
 
-function renderForm (onBuy, onAddCart) {
-  return <>
-  <div className="mt-10 flex">
-                <form>
-                  <button
-                    type="submit"
-                    data-testid="buy"
-                    onClick={onBuy}
-                    className="mr-5 bg-blue-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    Buy
-                  </button>
-                </form>
-                <form>
-                  <button
-                    type="submit"
-                    data-testid="add-to-bag"
-                    onClick={onAddCart}
-                    className="mr-5 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    Add to bag
-                  </button>
-                </form>
-                </div>
-  </>
+function renderForm(onBuy, onAddCart) {
+  return (
+    <>
+      <div className="mt-10 flex">
+        <form>
+          <button
+            type="submit"
+            data-testid="buy"
+            onClick={onBuy}
+            className="mr-5 bg-blue-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Buy
+          </button>
+        </form>
+        <form>
+          <button
+            type="submit"
+            data-testid="add-to-bag"
+            onClick={onAddCart}
+            className="mr-5 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Add to bag
+          </button>
+        </form>
+      </div>
+    </>
+  );
 }
 
-
-function renderHighlights (product) {
-  return <>
-   <h3 className="text-sm font-bold text-gray-900">
-                  Highlights
-                </h3>
-                <div className="mt-4">
-                  <ul role="list" className="pl-4 list-disc text-sm space-y-2">
-                    {product.highlights.map((h, index) => {
-                      return (
-                        <li
-                          key={`highlight${index}`}
-                          className="text-gray-400"
-                        >
-                          <span className="text-gray-600">{h}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-  </>
+function renderHighlights(product) {
+  return (
+    <>
+      <h3 className="text-sm font-bold text-gray-900">Highlights</h3>
+      <div className="mt-4">
+        <ul role="list" className="pl-4 list-disc text-sm space-y-2">
+          {product.highlights.map((h, index) => {
+            return (
+              <li key={`highlight${index}`} className="text-gray-400">
+                <span className="text-gray-600">{h}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </>
+  );
 }
