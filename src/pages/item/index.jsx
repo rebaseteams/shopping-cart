@@ -1,53 +1,16 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { BreadCrumb } from "../../components/breadcrumb";
-import { Stars } from "../../components/stars";
+import { renderLoading } from "../../components/loading";
+import { renderRating } from "../../components/rating";
+import { useItem as defaultUseItem } from "../../customHooks/useItem";
 
-const defaultPath = [
-  {
-    name: "Mens",
-    url: "#",
-  },
-  {
-    name: "Clothing",
-    url: "#",
-  },
-];
 
-const defaultProduct = {
-  id: "389y84",
-  name: "The basic Tee 6",
-  description:
-    "The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: &quot;Black&quot;. Need to add an extra pop of color to your outfit? Our white tee has you covered.",
-  price: 192,
-  priceUnit: "$",
-  star: 4.5,
-  outOfStock: false,
-  stockCount: 3222,
-  reviewCount: 117,
-  details:
-    "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming &quot;Charcoal Gray&quot; limited release.",
-  images: [
-    "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-  ],
-  highlights: [
-    "Hand cut and sewn locally",
-    "Dyed with our proprietary colors",
-    "Pre-washed & pre-shrunk",
-    "Ultra-soft 100% cotton",
-  ],
-  path: defaultPath,
-};
-export function renderItem(itemsService, product = defaultProduct) {
+    
+export function renderItem(itemsService, useItem = defaultUseItem) {
   return function Item() {
-    const { id } = useParams();
-    useEffect(() => {
-      const item = itemsService.getItems();
-      console.log(item);
-    });
-    console.log(id);
+    const { loading, product } = useItem(itemsService);
+
     const onBuy = () => {
       alert("On Buy Under Development");
     };
@@ -55,16 +18,23 @@ export function renderItem(itemsService, product = defaultProduct) {
     const onAddCart = () => {
       alert("On Add Cart Under Development");
     };
+
+    if (loading) return renderLoading();
+
+    if (!product) return <div className="bg-black"><h4>Error</h4></div>;
+
+    const Rating = renderRating(product.star);
+
     return (
-      <div className="bg-white">
+      <div className="bg-white pt-5">
         <BreadCrumb path={product.path} name={product.name} />
-        <div className="pt-6">
-          <div className="mt-6 max-w-2xl mx-auto sm:px-6 sm:grid-cols-1 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
+        <div className="pt-5">
+          <div className="max-w-2xl mx-auto sm:px-6 sm:grid-cols-1 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
             <div className="aspect-h-4 rounded-lg overflow-hidden lg:block">
               <img
                 src={product.images[0]}
                 alt="Two each of gray, white, and black shirts laying flat."
-                className="w-full h-full object-center object-cover"
+                className="w-auto h-auto object-center object-cover"
               />
             </div>
             <div className="aspect-h-4 px-4 lg:gap-y-8 rounded-lg lg:col-span-2 overflow-hidden lg:block">
@@ -88,9 +58,9 @@ export function renderItem(itemsService, product = defaultProduct) {
                   <h3 className="sr-only">Reviews</h3>
                   <div className="flex items-center">
                     <div className="flex items-center">
-                      <Stars stars={product.star} />
+                      <Rating />
                     </div>
-                    <p className="sr-only">4 out of 5 stars</p>
+                    <p className="sr-only">${product.star} out of 5 stars</p>
                     <a
                       href="#"
                       className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"

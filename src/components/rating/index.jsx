@@ -1,8 +1,8 @@
 import * as _ from 'lodash';
-import { rangeRight } from 'lodash';
 
-export function Stars ({ stars, range=5 }) {
-    if (!stars || stars > 5 || stars < rangeRight) return null;
+export function renderRating (stars, range=5 ) {
+  return function Rating () {
+    if (stars > range || stars < 0) return null;
     return _.times(range, (index) => {
       if (index >= Math.floor(stars)) {
         return <svg key={`star${index}`} data-testid={`star${index+1}`} className="text-gray-200 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -14,4 +14,5 @@ export function Stars ({ stars, range=5 }) {
         </svg>
       }
     })
+  }
 }

@@ -12,8 +12,8 @@ export class ItemsService {
         return this.itemsRepo.getItems();
     }
 
-    createItem = ({itemName, itemImg, itemColor, itemCost}) => {
-        return this.itemsRepo.createItem({itemName, itemImg, itemColor, itemCost});
+    createItem = (item) => {
+        return this.itemsRepo.createItem(item);
     }
 
     deleteItem = (id) => {

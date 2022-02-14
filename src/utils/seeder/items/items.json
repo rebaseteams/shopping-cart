@@ -1,24 +1,61 @@
 [
     {
-        "itemName": "Adifloss M Running Shoes For Men  (Blue)",
-        "itemImg": "https://rukminim1.flixcart.com/image/880/1056/kv8fbm80/shoe/y/k/s/7-hmi71-adidas-mysblu-ftwwht-vivred-original-imag86cpxqc9qgeg.jpeg?q=50",
-        "itemCost": "2334"
+        "name": "Adifloss M Running Shoes For Men  (Blue)",
+        "images": ["https://rukminim1.flixcart.com/image/880/1056/kv8fbm80/shoe/y/k/s/7-hmi71-adidas-mysblu-ftwwht-vivred-original-imag86cpxqc9qgeg.jpeg?q=50", "https://assetscdn1.paytm.com/images/catalog/product/F/FO/FOOSMOKY-TRENDYSMOK381955669A9D8/1622965634045_0..jpg"],
+        "price": "2334",
+        "color": "232",
+        "description": "Light weight , Breathable Spacer Mesh. 3D Splash Printing on 3 Stripes & special grains printing on heel cap gives the shoe a vibrant & bold look. Ortholite sock liner for better cushioning. They feature a textile upper and a supportive cage that wraps aroundthe midfoot to give you stability where you need it most. Outsole : ADIWEAR: outsolefor best durability in high wear areas.",
+        "priceUnit": "$",
+        "stockCount": 100,
+        "outOfStock": false,
+        "details": "Dtails",
+        "highlights": ["Shoe Width: Medium", "Adidas Men Running sports shoes"],
+        "path": [{ "name": "Mens", "url": "#" }, { "name": "shoes", "url": "#" }],
+        "category": "Mens",
+        "subCategory": "Shoes"
     },
     {
-        "itemName": "Pigeon Favourite Electric Kettle  (1.5 L, Silver, Black)",
-        "itemImg": "https://rukminim1.flixcart.com/image/416/416/kuipea80/electric-kettle/k/u/y/favourite-pigeon-original-imag7mzd7efhkvnr.jpeg?q=70",
-        "itemCost": "625"
+        "name": "Pigeon Favourite Electric Kettle  (1.5 L, Silver, Black)",
+        "images": ["https://rukminim1.flixcart.com/image/416/416/kuipea80/electric-kettle/k/u/y/favourite-pigeon-original-imag7mzd7efhkvnr.jpeg?q=70"],
+        "price": "625",
+        "description": "Light weight , Breathable Spacer Mesh. 3D Splash Printing on 3 Stripes & special grains printing on heel cap gives the shoe a vibrant & bold look. Ortholite sock liner for better cushioning. They feature a textile upper and a supportive cage that wraps aroundthe midfoot to give you stability where you need it most. Outsole : ADIWEAR: outsolefor best durability in high wear areas.",
+        "priceUnit": "$",
+        "stockCount": 100,
+        "outOfStock": false,
+        "details": "Dtails",
+        "highlights": ["Shoe Width: Medium", "Adidas Men Running sports shoes"],
+        "path": [{ "name": "Mens", "url": "#" }, { "name": "shoes", "url": "#" }],
+        "category": "Mens",
+        "subCategory": "Shoes"
     },
     {
-        "itemName": "Embellished Bollywood Georgette Saree",
-        "itemImg": "https://rukminim1.flixcart.com/image/880/1056/k7m8brk0/sari/y/p/q/free-mfs-66-black-mahalaxmi-fashion-unstitched-original-imafpt5nerdsufv8.jpeg?q=50",
-        "itemColor": "Black",
-        "itemCost": "828"
+        "name": "Embellished Bollywood Georgette Saree",
+        "images": ["https://rukminim1.flixcart.com/image/880/1056/k7m8brk0/sari/y/p/q/free-mfs-66-black-mahalaxmi-fashion-unstitched-original-imafpt5nerdsufv8.jpeg?q=50"],
+        "color": "Black",
+        "price": "828",
+        "description": "Light weight , Breathable Spacer Mesh. 3D Splash Printing on 3 Stripes & special grains printing on heel cap gives the shoe a vibrant & bold look. Ortholite sock liner for better cushioning. They feature a textile upper and a supportive cage that wraps aroundthe midfoot to give you stability where you need it most. Outsole : ADIWEAR: outsolefor best durability in high wear areas.",
+        "priceUnit": "$",
+        "stockCount": 100,
+        "outOfStock": false,
+        "details": "Dtails",
+        "highlights": ["Shoe Width: Medium", "Adidas Men Running sports shoes"],
+        "path": [{ "name": "Mens", "url": "#" }, { "name": "shoes", "url": "#" }],
+        "category": "Womens",
+        "subCategory": "Shoes"
     },
     {
-        "itemName": "Solid Men Mandarin Collar T-Shirt",
-        "itemImg": "https://rukminim1.flixcart.com/image/880/1056/kyrlifk0/t-shirt/2/a/v/xxl-tbrblhenful-d37-tripr-original-imagax9ucbwhf7wn.jpeg?q=50",
-        "itemColor": "Brown & Black",
-        "itemCost": "299"
+        "name": "Solid Men Mandarin Collar T-Shirt",
+        "images": ["https://rukminim1.flixcart.com/image/880/1056/kyrlifk0/t-shirt/2/a/v/xxl-tbrblhenful-d37-tripr-original-imagax9ucbwhf7wn.jpeg?q=50"],
+        "color": "Brown & Black",
+        "price": "299",
+        "description": "Light weight , Breathable Spacer Mesh. 3D Splash Printing on 3 Stripes & special grains printing on heel cap gives the shoe a vibrant & bold look. Ortholite sock liner for better cushioning. They feature a textile upper and a supportive cage that wraps aroundthe midfoot to give you stability where you need it most. Outsole : ADIWEAR: outsolefor best durability in high wear areas.",
+        "priceUnit": "$",
+        "stockCount": 100,
+        "outOfStock": false,
+        "details": "Dtails",
+        "highlights": ["Shoe Width: Medium", "Adidas Men Running sports shoes"],
+        "path": [{ "name": "Mens", "url": "#" }, { "name": "shoes", "url": "#" }],
+        "category": "Mens",
+        "subCategory": "Cloths"
     }
 ]

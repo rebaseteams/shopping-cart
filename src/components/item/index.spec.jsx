@@ -4,10 +4,10 @@ import { renderItemCard } from './index';
 
 test('renders item component successfully', () => {
   const Item = renderItemCard({
-    itemName : 'item name',
-    itemImg : 'img url',
-    itemColor : 'item color', 
-    itemCost : 'item cost in Rs',
+    name : 'item name',
+    images : 'img url',
+    color : 'item color', 
+    price : 'item cost in Rs',
     id : 'item id'
   });
   render(<Item />);
