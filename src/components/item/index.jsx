@@ -9,7 +9,7 @@ export function renderItemCard({itemName, itemImg, itemColor, itemCost, id}) {
                 <div className="mt-4 flex justify-between">
                     <div>
                         <h3 className="text-sm text-gray-700">
-                            <a href={itemImg}>
+                            <a href={`/item/${id}`}>
                                 <span aria-hidden="true" className="absolute inset-0"></span>
                                 {itemName}
                             </a>

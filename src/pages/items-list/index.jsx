@@ -9,7 +9,7 @@ export function renderItemsList(renderItemCard, itemsService) {
             {itemsService.getItems().map((item) => {
               const ItemCard = renderItemCard(item);
               return (
-                <ItemCard />
+                <ItemCard key={item.id} />
               );
             })}
           </div>

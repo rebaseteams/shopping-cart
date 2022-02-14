@@ -1,8 +1,21 @@
+import _ from 'lodash';
+
 const uuid = require('uuid').v4;
 export class ItemsRepo {
     store;
     constructor(store) {
         this.store = store;
+    }
+
+    getItem = (id) => {
+        const resp = this.store.get('items');
+        if(resp) {
+            const items = JSON.parse(this.store.get('items'));
+            const item = _.find(items, (item) => item.id === id);
+            if (item) return item;
+            else return null;
+        }
+        return null;
     }
 
     getItems = () => {

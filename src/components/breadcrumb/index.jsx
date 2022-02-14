@@ -5,8 +5,8 @@ export function BreadCrumb ({ path, name }) {
   return <nav aria-label="Breadcrumb">
   <ol role="list" className="max-w-2xl mx-auto px-4 flex items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8">
     {
-      path.map((p) => {
-        return <li>
+      path.map((p, index) => {
+        return <li key={`${p.name}-${index}`}>
         <div className="flex items-center">
           <a href={p.url} className="mr-2 text-sm font-medium text-gray-900"> {p.name}  </a>
           <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-4 h-5 text-gray-300">
