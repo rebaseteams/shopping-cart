@@ -1,7 +1,7 @@
 export function renderHeader() {
   return function Header() {
     return <>
-      <div className="bg-blue-500 h-16 flex justify-center text-white">
+      <div className="sticky top-0 z-50 bg-blue-500 h-16 flex justify-center text-white">
         <div className="flex items-center pr-3">
           <img className="h-5" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png" alt="logo" />
         </div>
