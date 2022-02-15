@@ -97,16 +97,13 @@ function renderForm(onBuy, onAddCart) {
   return (
     <>
       <div className="mt-10 flex">
-        <form>
           <button
-            type="submit"
             data-testid="buy"
             onClick={onBuy}
             className="mr-5 bg-blue-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Buy
           </button>
-        </form>
         <button
           data-testid="add-to-bag"
           onClick={onAddCart}
