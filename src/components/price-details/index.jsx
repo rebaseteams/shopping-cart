@@ -1,7 +1,7 @@
 export function renderPriceDetails({ numberOfItems, price, total }) {
     return function priceDetails() {
         return <>
-            <div className="border outline-slate-300 rounded-sm bg-white">
+            <div className="border outline-slate-300 rounded-sm bg-white shadow-sm">
                 <div className="border-b h-11 flex items-center pl-5 text-slate-500 font-medium">
                     PRICE DETAILS
                 </div>

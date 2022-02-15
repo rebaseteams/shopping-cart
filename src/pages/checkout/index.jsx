@@ -1,17 +1,30 @@
 
-export function renderCheckout(renderPriceDetails) {
-  const PriceDetails = renderPriceDetails({numberOfItems : 1, price : 1000, total : 1000 });
+export function renderCheckout(renderPriceDetails, renderLoginCard, renderDeliveryAddressCard, renderOrderSummaryCard, renderPaymentOptionsCard) {
+  const PriceDetails = renderPriceDetails({ numberOfItems: 1, price: 1000, total: 1000 });
+  const LoginCard = renderLoginCard({
+    name: 'PRASANA SHINDE',
+    mobile: '+918989898989'
+  });
+  const DeliveryAddressCard = renderDeliveryAddressCard({
+    name: 'prasana shinde',
+    address: 'Mangaon, Mumbai - 400201, Maharashtra',
+    pincode: '400201'
+  });
+  const OrderSummaryCard = renderOrderSummaryCard({
+    numberOfItems: 1
+  });
+  const PaymentOptionsCard = renderPaymentOptionsCard();
   return function Checkout() {
     return <>
       <div className="flex flex-row justify-center space-x-5 pt-5 px-28 bg-gray-100 min-h-screen">
         <div className="w-full">
-          <div>Login</div>
-          <div>Delivery Address</div>
-          <div>Order Summary</div>
-          <div>Payment Options</div>
+          <LoginCard />
+          <DeliveryAddressCard />
+          <OrderSummaryCard />
+          <PaymentOptionsCard />
         </div>
         <div>
-          {<PriceDetails />}
+          <PriceDetails />
           <div className="flex flex-row pt-5 px-5 space-x-5">
             <div>
               <img className="object-scale-down h-10 w-10" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/shield_5f9216.png" alt="logo" />
