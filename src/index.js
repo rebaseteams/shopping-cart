@@ -36,7 +36,7 @@ const services = {
   cart : new CartService(repositories.cart)
 }
 
-const Header = renderHeader();
+const Header = renderHeader(services.cart);
 const ItemsList = renderItemsList(renderItemCard, services.items);
 const ItemPage = renderItem(services.items, services.cart);
 const CheckOutPage = renderCheckout(renderPriceDetails, renderLoginCard, renderDeliveryAddressCard, renderOrderSummaryCard, renderPaymentOptionsCard);
