@@ -1,9 +1,10 @@
 /* eslint-disable testing-library/render-result-naming-convention */
 import { render, screen } from '@testing-library/react'
+import { renderPriceDetails } from '../../components/price-details';
 import { renderCheckout } from './index';
 
 test('renders checkout page successfully', () => {
-  const Checkout = renderCheckout();
+  const Checkout = renderCheckout(renderPriceDetails);
   render(<Checkout />);
   let textElement = screen.getByText(/login/i);
   expect(textElement).toBeInTheDocument();
