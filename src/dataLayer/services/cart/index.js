@@ -11,4 +11,12 @@ export class CartService {
   getCartItems = () => {
     return this.cartRepo.getCartItems();
   }
+
+  removeItem = () => {
+    return this.cartRepo.removeItem()
+  }
+
+  getCount = () => {
+    return this.cartRepo.getCount();
+  }
 }

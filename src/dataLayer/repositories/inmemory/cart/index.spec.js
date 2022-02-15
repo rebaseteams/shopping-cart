@@ -48,4 +48,15 @@ describe('CART INMEMORY REPO', () => {
       expect(cartItem).toStrictEqual([{ id: 'Item id', quantity: 1 }]);
     })
   })
+
+  describe('Remove item from cart', () => {
+    test('should remove item succesfully', () => {
+      cartRepo.addItem('Item id', 1);
+      const cartItem = cartRepo.getCartItems();
+      expect(cartItem).toStrictEqual([{ id: 'Item id', quantity: 1 }]);
+      cartRepo.removeItem('Item id');
+      const cartItemRemoved = cartRepo.getCartItems();
+      expect(cartItemRemoved).toStrictEqual([]);
+    });
+  })
 })
