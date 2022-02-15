@@ -4,11 +4,11 @@ export class CartService {
     this.cartRepo = cartRepo;
   }
 
-  addCart = (id, quentity = 1) => {
-    this.cartRepo.addCart(id, quentity);
+  addItem = (id, quantity = 1) => {
+    this.cartRepo.addItem(id, quantity);
   }
 
-  getCart = () => {
-    return this.cartRepo.getCart();
+  getCartItems = () => {
+    return this.cartRepo.getCartItems();
   }
 }
