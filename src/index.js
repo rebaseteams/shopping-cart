@@ -14,22 +14,26 @@ import { ItemsRepo } from './dataLayer/repositories/inmemory/items';
 import { Store } from './providers/store';
 import { ItemsService } from './dataLayer/services/items';
 import { seedItems } from './utils/seeder/items';
+import { CartRepo } from './dataLayer/repositories/inmemory/cart';
+import { CartService } from './dataLayer/services/cart';
 
 const providers = {
   store : new Store()
 }
 
 const repositories = {
-  items : new ItemsRepo(providers.store)
+  items : new ItemsRepo(providers.store),
+  cart : new CartRepo(providers.store)
 }
 
 const services = {
-  items : new ItemsService(repositories.items)
+  items : new ItemsService(repositories.items),
+  cart : new CartService(repositories.cart)
 }
 
 const Header = renderHeader();
 const ItemsList = renderItemsList(renderItemCard, services.items);
-const ItemPage = renderItem(services.items);
+const ItemPage = renderItem(services.items, services.cart);
 const CheckOutPage = renderCheckout();
 const PageNotFound = renderPageNotFoundPage();
 

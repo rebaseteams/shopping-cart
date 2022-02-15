@@ -1,22 +1,25 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { BreadCrumb } from "../../components/breadcrumb";
+import { renderItemCard } from "../../components/item";
 import { renderLoading } from "../../components/loading";
 import { renderRating } from "../../components/rating";
 import { useItem as defaultUseItem } from "../../customHooks/useItem";
+import { renderItemsList } from "../items-list";
 
 
     
-export function renderItem(itemsService, useItem = defaultUseItem) {
+export function renderItem(itemsService, cartService, useItem = defaultUseItem) {
+  const ItemList = renderItemsList(renderItemCard, itemsService);
   return function Item() {
     const { loading, product } = useItem(itemsService);
 
     const onBuy = () => {
-      alert("On Buy Under Development");
+      alert("On Buy Under Development"); 
     };
 
     const onAddCart = () => {
-      alert("On Add Cart Under Development");
+      cartService.addItem(product.id, 1);
     };
 
     if (loading) return renderLoading();
@@ -84,6 +87,7 @@ export function renderItem(itemsService, useItem = defaultUseItem) {
             </div>
           </div>
         </div>
+        <ItemList />
       </div>
     );
   };
@@ -103,16 +107,13 @@ function renderForm(onBuy, onAddCart) {
             Buy
           </button>
         </form>
-        <form>
-          <button
-            type="submit"
-            data-testid="add-to-bag"
-            onClick={onAddCart}
-            className="mr-5 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Add to bag
-          </button>
-        </form>
+        <button
+          data-testid="add-to-bag"
+          onClick={onAddCart}
+          className="mr-5 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          Add to bag
+        </button>
       </div>
     </>
   );

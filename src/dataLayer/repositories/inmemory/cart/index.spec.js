@@ -1,9 +1,9 @@
-import { Cart } from ".";
+import { CartRepo } from ".";
 import { Store } from '../../../../providers/store'
 
 describe('CART INMEMORY REPO', () => {
   const store = new Store();
-  const cart = new Cart(store)
+  const cartRepo = new CartRepo(store)
 
   afterEach(() => {
     store.clear();
@@ -11,35 +11,41 @@ describe('CART INMEMORY REPO', () => {
 
   describe('Add item in Cart', () => {
     test('should add item in cart successfully', () => {
-      cart.addCart('item id', 1);
-      const cartItem = cart.getCart();
-      expect(cartItem).toStrictEqual([{ id: 'item id', quentity: 1 }]);
+      cartRepo.addItem('item id', 1);
+      const cartItem = cartRepo.getCartItems();
+      expect(cartItem).toStrictEqual([{ id: 'item id', quantity: 1 }]);
     });
 
-    test('should increase item quentity if item already present', () => {
-      cart.addCart('item id', 1);
-      cart.addCart('item id', 1);
-      const cartItem = cart.getCart();
-      expect(cartItem).toStrictEqual([{ id: 'item id', quentity: 2 }]);
+    test('should increase item quantity if item already present', () => {
+      cartRepo.addItem('item id', 1);
+      cartRepo.addItem('item id', 1);
+      const cartItem = cartRepo.getCartItems();
+      expect(cartItem).toStrictEqual([{ id: 'item id', quantity: 2 }]);
     });
 
-    test('should add default quentity 1 if quentity not provided', () => {
-      cart.addCart('item id');
-      const cartItem = cart.getCart();
-      expect(cartItem).toStrictEqual([{ id: 'item id', quentity: 1 }]);
+    test('should add default quantity 1 if quantity not provided', () => {
+      cartRepo.addItem('item id');
+      const cartItem = cartRepo.getCartItems();
+      expect(cartItem).toStrictEqual([{ id: 'item id', quantity: 1 }]);
     });
 
     test('should not update or add item in cart id item id is not provided', () => {
-      cart.addCart();
-      const cartItem = cart.getCart();
+      cartRepo.addItem();
+      const cartItem = cartRepo.getCartItems();
       expect(cartItem).toStrictEqual([]);
     });
   });
 
   describe('Get item from Cart', () => {
     test('should get empty array id the cart is not set', () => {
-      const cartItem = cart.getCart();
+      const cartItem = cartRepo.getCartItems();
       expect(cartItem).toStrictEqual([]);
+    });
+
+    test('should return value if item present in cart', () => {
+      cartRepo.addItem('Item id', 1);
+      const cartItem = cartRepo.getCartItems();
+      expect(cartItem).toStrictEqual([{ id: 'Item id', quantity: 1 }]);
     })
   })
 })
