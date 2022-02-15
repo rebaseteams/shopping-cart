@@ -16,6 +16,7 @@ import { ItemsService } from './dataLayer/services/items';
 import { seedItems } from './utils/seeder/items';
 import { CartRepo } from './dataLayer/repositories/inmemory/cart';
 import { CartService } from './dataLayer/services/cart';
+import { renderPriceDetails } from './components/price-details';
 
 const providers = {
   store : new Store()
@@ -34,7 +35,7 @@ const services = {
 const Header = renderHeader();
 const ItemsList = renderItemsList(renderItemCard, services.items);
 const ItemPage = renderItem(services.items, services.cart);
-const CheckOutPage = renderCheckout();
+const CheckOutPage = renderCheckout(renderPriceDetails);
 const PageNotFound = renderPageNotFoundPage();
 
 seedItems(services.items);
