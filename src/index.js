@@ -39,7 +39,7 @@ const services = {
 const Header = renderHeader(services.cart);
 const ItemsList = renderItemsList(renderItemCard, services.items);
 const ItemPage = renderItem(services.items, services.cart);
-const CheckOutPage = renderCheckout(renderPriceDetails, renderLoginCard, renderDeliveryAddressCard, renderOrderSummaryCard, renderPaymentOptionsCard);
+const CheckOutPage = renderCheckout(renderPriceDetails, renderLoginCard, renderDeliveryAddressCard, renderOrderSummaryCard, renderPaymentOptionsCard, services.items, services.cart);
 const PageNotFound = renderPageNotFoundPage();
 
 seedItems(services.items);

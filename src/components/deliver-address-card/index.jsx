@@ -3,7 +3,7 @@ export function renderDeliveryAddressCard({name, address, pincode}) {
         return <>
             <div className="border rounded-sm bg-white px-6 flex flex-row justify-between py-4 mb-5 shadow-sm">
                 <div className="flex flex-row">
-                    <div className="text-blue-500 text-xs h-5 w-8 bg-slate-100 flex items-center justify-center">
+                    <div className="text-blue-500 text-xs h-5 w-5 bg-slate-100 flex items-center justify-center">
                         2
                     </div>
                     <div className="pl-6">
@@ -14,13 +14,13 @@ export function renderDeliveryAddressCard({name, address, pincode}) {
                             </div>
                         </div>
                         <span>
-                            <span className="tracking-tighter font-semibold text-sm">
-                                {name}
+                            <span className="tracking-tighter font-medium text-lg">
+                                {name} {' '}
                             </span>
-                            <span className="pl-2 text-sm">
+                            <span className="text-sm">
                                 {address}
-                                - {' '}
-                                <span className="tracking-tighter font-semibold text-sm">
+                                {' '} - {' '}
+                                <span className="tracking-tighter font-medium text-lg">
                                     {pincode}
                                 </span>
                             </span>

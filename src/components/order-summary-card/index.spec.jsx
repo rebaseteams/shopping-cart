@@ -1,18 +1,16 @@
 /* eslint-disable testing-library/render-result-naming-convention */
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import { CartRepo } from '../../dataLayer/repositories/inmemory/cart';
+import { CartService } from '../../dataLayer/services/cart';
+import { Store } from '../../providers/store';
 import { renderOrderSummaryCard } from './index';
 
-jest.spyOn(window, 'alert');
-
 test('renders order summary card successfully', () => {
-  const OrderSummaryCard = renderOrderSummaryCard({
-      numberOfItems : 1
-  });
+  const cartService = new CartService(new CartRepo(new Store()));
+  const OrderSummaryCard = renderOrderSummaryCard({ email : 'prasanashinde@gmail.com', cartService });
   render(<OrderSummaryCard />);
   let textElement = screen.getByText(/order summary/i);
   expect(textElement).toBeInTheDocument();
   textElement = screen.getByText(/change/i);
   expect(textElement).toBeInTheDocument();
-  fireEvent.click(screen.getByTestId('change'));
-  expect(window.alert).toBeCalledWith('change clicked');
 });
