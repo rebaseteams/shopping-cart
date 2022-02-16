@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react";
-export function useCartCount (cartService) {
-  const [ cartCount, setCartCount ] = useState(0);
-    useEffect(() => {
-      const count = cartService.getCount();
-      setCartCount(count);
-    }, []);
+import { useContext } from "react";
+import { GlobalProvider } from "../providers/context";
 
+export function useCartCount () {
+  const { value } = useContext(GlobalProvider);
   return {
-    cartCount
+    cartCount: value
   }
 }
