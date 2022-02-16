@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 
-export function useItem (itemsService) {
+export function useItem (itemsService, provider) {
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(false);
 
   const { id } = useParams();
+
+  const { setCount, value } = useContext(provider);
 
   useEffect(() => {
     setLoading(true);
@@ -15,6 +17,6 @@ export function useItem (itemsService) {
   }, [])
 
   return {
-    loading, product,
+    loading, product, setCount, value
   }
 }

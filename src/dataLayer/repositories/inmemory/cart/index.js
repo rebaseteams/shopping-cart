@@ -27,7 +27,7 @@ export class CartRepo {
     const cart = this.getCartItems();
     let count = 0;
     for (let i = 0; i < cart.length ; i++) {
-      count = cart[i].quantity;
+      count += cart[i].quantity;
     }
     return count;
   }

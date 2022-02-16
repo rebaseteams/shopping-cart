@@ -9,7 +9,10 @@ import { CartRepo } from "../../dataLayer/repositories/inmemory/cart";
 import testData from "./testData.json";
 
 const mockUseItemHook = () => {
-  return testData;
+  return {
+    ...testData,
+    setCount: () => {}
+  };
 };
 
 jest.spyOn(window, "alert");
