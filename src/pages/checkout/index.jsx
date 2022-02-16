@@ -1,18 +1,16 @@
 
-export function renderCheckout(renderPriceDetails, renderLoginCard, renderDeliveryAddressCard, renderOrderSummaryCard, renderPaymentOptionsCard) {
+export function renderCheckout(renderPriceDetails, renderLoginCard, renderDeliveryAddressCard, renderOrderSummaryCard, renderPaymentOptionsCard, itemsService, cartService) {
   const PriceDetails = renderPriceDetails({ numberOfItems: 1, price: 1000, total: 1000 });
   const LoginCard = renderLoginCard({
     name: 'PRASANA SHINDE',
     mobile: '+918989898989'
   });
   const DeliveryAddressCard = renderDeliveryAddressCard({
-    name: 'prasana shinde',
+    name: 'Prasana Shinde',
     address: 'Mangaon, Mumbai - 400201, Maharashtra',
     pincode: '400201'
   });
-  const OrderSummaryCard = renderOrderSummaryCard({
-    numberOfItems: 1
-  });
+  const OrderSummaryCard = renderOrderSummaryCard({ email : 'prasanashinde@gmail.com', itemsService, cartService });
   const PaymentOptionsCard = renderPaymentOptionsCard();
   return function Checkout() {
     return <>
