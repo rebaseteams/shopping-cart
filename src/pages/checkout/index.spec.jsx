@@ -18,8 +18,8 @@ test('renders checkout page successfully', () => {
   const cartService = new CartService(new CartRepo(store));
   const Checkout = renderCheckout(renderPriceDetails, renderLoginCard, renderDeliveryAddressCard, renderOrderSummaryCard, renderPaymentOptionsCard, itemsService, cartService);
   render(<Checkout />);
-  let textElement = screen.getByText(/login/i);
-  expect(textElement).toBeInTheDocument();
+  let textElement = screen.getAllByText(/login/i);
+  expect(textElement[0]).toBeInTheDocument();
   textElement = screen.getByText(/delivery address/i);
   expect(textElement).toBeInTheDocument();
   textElement = screen.getByText(/order summary/i);
