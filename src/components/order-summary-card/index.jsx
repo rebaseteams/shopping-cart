@@ -1,8 +1,8 @@
 import { useState } from "react"
 
 export function renderOrderSummaryCard({ email, itemsService, cartService }) {
-        const items = cartService.getCartItems();
     return function OrderSummaryCard() {
+        const items = cartService.getCartItems();
         const [headBackground, setHeadBackground] = useState("bg-blue-500");
         const [headTextColor, setHeadTextColor] = useState("text-white");
         const [editable, setEditable] = useState("");

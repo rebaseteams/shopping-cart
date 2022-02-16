@@ -2,21 +2,28 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { renderDeliveryAddressCard } from './index';
 
-jest.spyOn(window, 'alert');
-
 test('renders delivery address card successfully', () => {
-  const DeliveryAddressCard = renderDeliveryAddressCard({
-      name : 'prasana shinde',
-      address: 'Mangaon, Mumbai - 400201, Maharashtra',
-      pincode: '400201'
-  });
+  const DeliveryAddressCard = renderDeliveryAddressCard();
   render(<DeliveryAddressCard />);
   let textElement = screen.getByText(/delivery address/i);
-  expect(textElement).toBeInTheDocument();
-  textElement = screen.getByText(/prasana shinde/i);
   expect(textElement).toBeInTheDocument();
   textElement = screen.getByText(/change/i);
   expect(textElement).toBeInTheDocument();
   fireEvent.click(screen.getByTestId('change'));
-  expect(window.alert).toBeCalledWith('change clicked');
+  textElement = screen.getByText(/name/i);
+  expect(textElement).toBeInTheDocument();
+  textElement = screen.getByText(/10-digit mobile number/i);
+  expect(textElement).toBeInTheDocument();
+  textElement = screen.getByText(/pincode/i);
+  expect(textElement).toBeInTheDocument();
+  textElement = screen.getByText(/locality/i);
+  expect(textElement).toBeInTheDocument();
+  textElement = screen.getByText('City/District/Town');
+  expect(textElement).toBeInTheDocument();
+  textElement = screen.getByText(/state/i);
+  expect(textElement).toBeInTheDocument();
+  textElement = screen.getByText('Landmark (Optional)');
+  expect(textElement).toBeInTheDocument();
+  textElement = screen.getByText('Alternate Phone (Optional)');
+  expect(textElement).toBeInTheDocument();
 });
