@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 export function renderItemCard({name, images, color, price, priceUnit, id}) {
     return function ItemCard() {
@@ -9,10 +10,10 @@ export function renderItemCard({name, images, color, price, priceUnit, id}) {
                 <div className="mt-4 flex justify-between">
                     <div>
                         <h3 className="text-sm text-gray-700">
-                            <a href={`/item/${id}`}>
+                            <Link to={`item/${id}`}>
                                 <span aria-hidden="true" className="absolute inset-0"></span>
                                 {name}
-                            </a>
+                            </Link>
                         </h3>
                         {color ? <p className="mt-1 text-sm text-gray-500">{color}</p> : <></>}
                     </div>

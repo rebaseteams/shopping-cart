@@ -40,6 +40,7 @@ export function renderItem(itemsService, cartService, useItem = defaultUseItem, 
                 alt="Two each of gray, white, and black shirts laying flat."
                 className="w-auto h-auto object-center object-cover"
               />
+              {renderForm(onBuy, onAddCart)}
             </div>
             <div className="aspect-h-4 px-4 lg:gap-y-8 rounded-lg lg:col-span-2 overflow-hidden lg:block">
               <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
@@ -54,7 +55,7 @@ export function renderItem(itemsService, cartService, useItem = defaultUseItem, 
               <div className="mt-4 lg:mt-0 lg:row-span-3">
                 <h2 className="sr-only">Product information</h2>
                 <p className="text-3xl text-gray-900">
-                  {product.priceUnit}
+                  ₹
                   {product.price}
                 </p>
 
@@ -73,7 +74,6 @@ export function renderItem(itemsService, cartService, useItem = defaultUseItem, 
                     </a>
                   </div>
                 </div>
-                {renderForm(onBuy, onAddCart)}
               </div>
 
               <div className="py-6">
