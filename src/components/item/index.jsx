@@ -10,7 +10,7 @@ export function renderItemCard({name, images, color, price, priceUnit, id}) {
                 <div className="mt-4 flex justify-between">
                     <div>
                         <h3 className="text-sm text-gray-700">
-                            <Link to={`item/${id}`}>
+                            <Link to={`/item/${id}`}>
                                 <span aria-hidden="true" className="absolute inset-0"></span>
                                 {name}
                             </Link>

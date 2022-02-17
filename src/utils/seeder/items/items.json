@@ -19,6 +19,35 @@
         "discount" : 12
     },
     {
+        "name": "realme 9 Pro 5G (Aurora Green, 128 GB)  (6 GB RAM)",
+        "images": [
+            "https://images.fonearena.com/blog/wp-content/uploads/2022/02/realme-9-Pro-Plus-1-1024x993.jpg",
+            "https://www.mobigyaan.com/wp-content/uploads/2022/02/realme-9-Pro-Plus-2.jpeg",
+            "https://i.gadgets360cdn.com/large/realme_9_pro_small_1643976481816.jpg"
+        ],
+        "price": 21999,
+        "description": "Handset, Charger (11V/3A), USB Cable, Important Info Booklet with Warranty Card, Quick Guide, Sim Card Tool, Screen Protect Film, TPU Case.",
+        "priceUnit": "$",
+        "stockCount": 100,
+        "star": 4.6,
+        "rating" : 1503,
+        "reviewCount" : 439847,
+        "outOfStock": false,
+        "details": "Details",
+        "highlights": [
+            "6 GB RAM | 128 GB ROM | Expandable Upto 256 GB",
+            "16.76 cm (6.6 inch) Full HD+ Display",
+            "64MP + 8MP + 2MP | 16MP Front Camera",
+            "5000 mAh Li-ion Battery",
+            "Qualcomm Snapdragon 695 Processor"
+        ],
+        "path": [{ "name": "Electronics", "url": "#" }, { "name": "Mobile", "url": "#" }],
+        "category": "Electronics",
+        "subCategory": "Mobile",
+        "discount" : 18
+    },
+
+    {
         "name": "Pigeon Favourite Electric Kettle  (1.5 L, Silver, Black)",
         "images": ["https://rukminim1.flixcart.com/image/416/416/kuipea80/electric-kettle/k/u/y/favourite-pigeon-original-imag7mzd7efhkvnr.jpeg?q=70"],
         "price": "625",
@@ -36,24 +65,66 @@
         "subCategory": "Shoes",
         "discount" : 8
     },
+
     {
-        "name": "Embellished Bollywood Georgette Saree",
-        "images": ["https://rukminim1.flixcart.com/image/880/1056/k7m8brk0/sari/y/p/q/free-mfs-66-black-mahalaxmi-fashion-unstitched-original-imafpt5nerdsufv8.jpeg?q=50"],
+        "name": "ZEBRONICS 21.5 inch Full HD Wall mountable, Anti-Glare display, Sleek Design Monitor (Zeb-A22FHD LED)  (Response Time: 5 ms)",
+        "images": [
+            "https://m.media-amazon.com/images/I/41W85NXr0jL.jpg",
+            "https://m.media-amazon.com/images/I/31hC+x3IW5L.jpg"
+        ],
+        "price": "21999",
+        "description": "Bring home the Zebronics Full HD Monitor and view videos, play games, and watch movies clearly and vividly as it delivers up to 16.7 million colors. Thanks to the anti-glare screen, you can easily watch videos and play games for long hours without straining your eyes. What's more, this monitor can be wall-mounted as well as it comes with a provision.",
+        "priceUnit": "$",
+        "stockCount": 1000,
+        "star": 4.9,
+        "rating" : 15445,
+        "reviewCount" : 4,
+        "outOfStock": false,
+        "details": "Details",
+        "highlights": [
+            "Screen Resolution Type: Full HD",
+            "VGA Support | HDMI",
+            "Inbuilt Speaker",
+            "Brightness: 250 nits",
+            "Response Time: 5 ms",
+            "HDMI Ports - 1"
+        ],
+        "path": [{ "name": "Electronics", "url": "#" }, { "name": "LED TV", "url": "#" }],
+        "category": "Electronics",
+        "subCategory": "LED TV",
+        "discount" : 54
+    },
+    
+    {
+        "name": "IFB 6 kg 5 Star Aqua Energie, Laundry Add, Tub Clean, Fully Automatic Front Load with In-built Heater White  (Diva Aqua VX)",
+        "images": [
+            "https://rukminim1.flixcart.com/image/416/416/krz97rk0/washing-machine-new/g/2/4/diva-aqua-vx-ifb-original-imag5ngqvnsgwxhy.jpeg?q=70",
+            "https://rukminim1.flixcart.com/image/416/416/ktlu9ow0/washing-machine-new/d/u/f/diva-plus-vx-ifb-original-imag6x2yhqtefz4c.jpeg?q=70",
+            "https://rukminim1.flixcart.com/image/416/416/kuyf8nk0/washing-machine-new/q/q/9/senator-wxs-ifb-original-imag7ymsahbqspz6.jpeg?q=70",
+            "https://rukminim1.flixcart.com/image/416/416/ktlu9ow0/washing-machine-new/9/p/v/diva-aqua-vx-ifb-original-imag6x2yfskcsxg3.jpeg?q=70",
+            "https://rukminim1.flixcart.com/image/416/416/ktlu9ow0/washing-machine-new/w/6/9/diva-aqua-vx-ifb-original-imag6x2y7s9rdfjc.jpeg?q=70"
+        ],
         "color": "Black",
-        "price": "828",
+        "price": 23990,
         "description": "Light weight , Breathable Spacer Mesh. 3D Splash Printing on 3 Stripes & special grains printing on heel cap gives the shoe a vibrant & bold look. Ortholite sock liner for better cushioning. They feature a textile upper and a supportive cage that wraps aroundthe midfoot to give you stability where you need it most. Outsole : ADIWEAR: outsolefor best durability in high wear areas.",
         "priceUnit": "$",
         "stockCount": 100,
-        "star": 3,
-        "rating" : 15,
-        "review" : 4,
+        "star": 4.1,
+        "rating" : 155,
+        "reviewCount" : 4453,
         "outOfStock": false,
         "details": "Details",
-        "highlights": ["Shoe Width: Medium", "Adidas Men Running sports shoes"],
-        "path": [{ "name": "Mens", "url": "#" }, { "name": "shoes", "url": "#" }],
-        "category": "Womens",
-        "subCategory": "Shoes",
-        "discount" : 40
+        "highlights": [
+            "Fully Automatic Front Load Washing Machines have Great Wash Quality with very less running cost",
+            "800 rpm : Higher the spin speed, lower the drying time",
+            "Number of wash programs - 8 : With higher wash programs-Wash a variety of fabrics",
+            "5 Star Rating",
+            "6 kg"
+        ],
+        "path": [{ "name": "Electronics", "url": "#" }, { "name": "Washing Machine", "url": "#" }],
+        "category": "Electronics",
+        "subCategory": "Washing Machine",
+        "discount" : 8
     },
     {
         "name": "Solid Men Mandarin Collar T-Shirt",
@@ -64,7 +135,7 @@
         "priceUnit": "$",
         "star": 4.5,
         "rating" : 15,
-        "review" : 4,
+        "reviewCount" : 4,
         "stockCount": 100,
         "outOfStock": false,
         "details": "Details",

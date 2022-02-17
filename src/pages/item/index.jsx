@@ -9,7 +9,7 @@ import { CartCount } from "../../providers/context";
 export function renderItem(itemsService, cartService, useItem = defaultUseItem, cartCountProvider = CartCount) {
   const ItemList = renderItemsList(renderItemCard, itemsService);
   return function Item() {
-    const { loading, product, setCount } = useItem(itemsService, cartCountProvider);
+    const { loading, product, setCount, setImage, image } = useItem(itemsService, cartCountProvider);
 
     const onBuy = () => {
       alert("On Buy Under Development"); 
@@ -27,11 +27,11 @@ export function renderItem(itemsService, cartService, useItem = defaultUseItem, 
 
     return (
       <div className="bg-white pt-5">
-        <div className="flex">
+        <div className="flex space-x-2">
           <div className="flex flex-col">
             {
               product.images.map((img) => {
-                return <img className="w-14 h-14 m-1 border-2" src={img} alt={img} />
+                return <img onClick={() => setImage(img)} className="w-14 h-14 m-1 border-1" src={img} alt={img} />
               })
             }
           </div>
@@ -40,7 +40,7 @@ export function renderItem(itemsService, cartService, useItem = defaultUseItem, 
           <div className="flex flex-row justify-start w-full">
             <div className="flex w-96 flex-col items-start">
               <img
-                    src={product.images[0]}
+                    src={image}
                     alt="Two each of gray, white, and black shirts laying flat."
                     className="w-full rounded-lg h-72 object-center object-cover"
               />
@@ -61,7 +61,7 @@ export function renderItem(itemsService, cartService, useItem = defaultUseItem, 
               </div>
 
               <div className="my-5 font-medium flex items-center">
-                <span className="text-4xl">₹ {product.price - (product.price * ( product.discount/100 ) )}</span>
+                <span className="text-4xl">₹ {Math.floor(product.price - (product.price * ( product.discount/100 ) ))}</span>
                 <span className="ml-6 line-through text-gray-700 text-xl">₹ {product.price}</span>
                 <span className="ml-6 text-green-600 text-xl">{product.discount}% Off</span>
               </div>
@@ -74,7 +74,9 @@ export function renderItem(itemsService, cartService, useItem = defaultUseItem, 
               <div className="border mt-5 flex flex-col">
                 {renderHighlights(product)}
               </div>
-            <ItemList />
+              <div className="">
+                <ItemList />
+              </div>
             </div>
 
           </div>
