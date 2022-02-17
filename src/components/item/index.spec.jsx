@@ -1,5 +1,6 @@
 /* eslint-disable testing-library/render-result-naming-convention */
 import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom';
 import { renderItemCard } from './index';
 
 test('renders item component successfully', () => {
@@ -10,7 +11,7 @@ test('renders item component successfully', () => {
     price : 'item cost in Rs',
     id : 'item id'
   });
-  render(<Item />);
+  render(<BrowserRouter><Item /></BrowserRouter>);
   const itemName = screen.getByText(/item name/i);
   const itemColor = screen.getByText(/item color/i);
   const itemCost = screen.getByText(/item cost in rs/i);
