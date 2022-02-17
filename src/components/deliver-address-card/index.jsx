@@ -6,35 +6,33 @@ export function renderDeliveryAddressCard() {
         const [headTextColor, setHeadTextColor] = useState("text-white");
         const [editable, setEditable] = useState("");
         const [viewable, setViewable] = useState("hidden");
-        const [formState, setFormState] = useState({ 
-            name : '',
-            locality : '',
-            city : '',
-            state : '',
-            pincode : '',
-            mobile : '',
-            alternatephone : '',
-            landmark : ''
+        const [formState, setFormState] = useState({
+            name: '', locality: '', city: '', state: '',
+            pincode: '', mobile: '', alternatephone: '', landmark: ''
+        });
+        const [formErrors, setFormErrors] = useState({
+            name: false, locality: false, city: false, state: false,
+            pincode: false, mobile: false
         });
 
         const handleSave = (event) => {
             event.preventDefault();
-            const data = new FormData(event.target);
-            setFormState({
-                name : data.get('name'),
-                locality : data.get('locality'),
-                city : data.get('city'),
-                state : data.get('state'),
-                pincode : data.get('pincode'),
-                mobile : data.get('mobile'),
-                alternatephone : data.get('alternatephone'),
-                landmark : data.get('landmark')
-            })
+            if (!validateFormState()) return;
             setHeadBackground("bg-white");
             setViewable("");
             setEditable("hidden");
             setHeadTextColor("text-gray-500");
         }
+
+        const validateFormState = () => {
+            let state = true;
+            for (const key in formErrors) {
+                console.log(key, formErrors[key]);
+                if(formErrors[key]) return false;
+            }
+            return state;
+        }
+
         return <>
             <div className="border rounded-sm mb-5 shadow-sm">
                 <div className={"px-6 flex flex-row justify-between py-4 " + headBackground}>
@@ -74,44 +72,80 @@ export function renderDeliveryAddressCard() {
                 </div>
                 <div className={"bg-blue-50 px-6 py-4 " + editable}>
                     <form onSubmit={handleSave}>
-                    <div className="flex flex-row px-4 pb-4 space-x-4">
-                            <div className="border w-72 rounded-sm bg-white px-2 py-2">
-                                <div className="text-xs text-gray-400">Name</div>
-                                <input id='name' defaultValue={formState.name} name='name' className="outline-none text-gray-800 font-thin text-sm" type="text" />
+                        <div className="flex flex-row px-4 pb-4 space-x-4">
+                            <div className="w-72">
+                                <div className={"border rounded-sm bg-white px-2 py-2 " + (formErrors.name ? "outline outline-red-500 outline-1" : "")}>
+                                    <div className={"text-xs text-gray-400 " + (formErrors.name ? "text-red-500" : "")}>Name</div>
+                                    <input onBlur={(ele) => {if(!ele.target.value) setFormErrors({ ...formErrors, name : true })}} onChange={(ele) => {
+                                        setFormState({ ...formState, name : ele.target.value })
+                                        if(ele.target.value) setFormErrors({ ...formErrors, name : false })
+                                    }} id='name' defaultValue={formState.name} name='name' className="outline-none text-gray-800 font-light text-sm" type="text" />
+                                </div>
+                                {formErrors.name ? <div className="text-xs pt-1 pl-2 text-red-500">Please fill out this field</div> : <></>}
                             </div>
-                            <div className="border w-72 rounded-sm bg-white px-2 py-2">
-                                <div className="text-xs text-gray-400">10-digit mobile number</div>
-                                <input id='mobile' defaultValue={formState.mobile} name='mobile' className="outline-none text-gray-800 font-thin text-sm" type="text" />
+                            <div className="w-72">
+                                <div className={"border rounded-sm bg-white px-2 py-2 " + (formErrors.mobile ? "outline outline-red-500 outline-1" : "")}>
+                                    <div className={"text-xs text-gray-400 " + (formErrors.mobile ? "text-red-500" : "")}>10-digit mobile number</div>
+                                    <input onBlur={(ele) => {if(!ele.target.value) setFormErrors({ ...formErrors, mobile : true })}} onChange={(ele) => {
+                                        setFormState({ ...formState, mobile : ele.target.value })
+                                        if(ele.target.value) setFormErrors({ ...formErrors, mobile : false })
+                                    }} id='mobile' defaultValue={formState.mobile} name='mobile' className="outline-none text-gray-800 font-light text-sm" type="text" />
+                                </div>
+                                {formErrors.mobile ? <div className="text-xs pt-1 pl-2 text-red-500">Please fill out this field</div> : <></>}
                             </div>
                         </div>
                         <div className="flex flex-row px-4 pb-4 space-x-4">
-                            <div className="border w-72 rounded-sm bg-white px-2 py-2">
-                                <div className="text-xs text-gray-400">Pincode</div>
-                                <input id='pincode' defaultValue={formState.pincode} name='pincode' className="outline-none text-gray-800 font-thin text-sm" type="text" />
+                            <div className="w-72">
+                                <div className={"border rounded-sm bg-white px-2 py-2 " + (formErrors.pincode ? "outline outline-red-500 outline-1" : "")}>
+                                    <div className={"text-xs text-gray-400 " + (formErrors.pincode ? "text-red-500" : "")}>Pincode</div>
+                                    <input onBlur={(ele) => {if(!ele.target.value) setFormErrors({ ...formErrors, pincode : true })}} onChange={(ele) => {
+                                        setFormState({ ...formState, pincode : ele.target.value })
+                                        if(ele.target.value) setFormErrors({ ...formErrors, pincode : false })
+                                    }} id='pincode' defaultValue={formState.pincode} name='pincode' className="outline-none text-gray-800 font-light text-sm" type="text" />
+                                </div>
+                                {formErrors.pincode ? <div className="text-xs pt-1 pl-2 text-red-500">Please fill out this field</div> : <></>}
                             </div>
-                            <div className="border w-72 rounded-sm bg-white px-2 py-2">
-                                <div className="text-xs text-gray-400">Locality</div>
-                                <input id='locality' defaultValue={formState.locality} name='locality' className="outline-none text-gray-800 font-thin text-sm" type="text" />
+                            <div className="w-72">
+                                <div className={"border rounded-sm bg-white px-2 py-2 " + (formErrors.locality ? "outline outline-red-500 outline-1" : "")}>
+                                    <div className={"text-xs text-gray-400 " + (formErrors.locality ? "text-red-500" : "")}>Locality</div>
+                                    <input onBlur={(ele) => {if(!ele.target.value) setFormErrors({ ...formErrors, locality : true })}} onChange={(ele) => {
+                                        setFormState({ ...formState, locality : ele.target.value })
+                                        if(ele.target.value) setFormErrors({ ...formErrors, locality : false })
+                                    }} id='locality' defaultValue={formState.locality} name='locality' className="outline-none text-gray-800 font-light text-sm" type="text" />
+                                </div>
+                                {formErrors.locality ? <div className="text-xs pt-1 pl-2 text-red-500">Please fill out this field</div> : <></>}
                             </div>
                         </div>
                         <div className="flex flex-row px-4 pb-4 space-x-4">
-                            <div className="border w-72 rounded-sm bg-white px-2 py-2">
-                                <div className="text-xs text-gray-400">City/District/Town</div>
-                                <input id='city' defaultValue={formState.city} name='city' className="outline-none text-gray-800 font-thin text-sm" type="text" />
+                            <div className="w-72">
+                                <div className={"border rounded-sm bg-white px-2 py-2 " + (formErrors.city ? "outline outline-red-500 outline-1" : "")}>
+                                    <div className={"text-xs text-gray-400 " + (formErrors.city ? "text-red-500" : "")}>City/District/Town</div>
+                                    <input onBlur={(ele) => {if(!ele.target.value) setFormErrors({ ...formErrors, city : true })}} onChange={(ele) => {
+                                        setFormState({ ...formState, city : ele.target.value })
+                                        if(ele.target.value) setFormErrors({ ...formErrors, city : false })
+                                    }} id='city' defaultValue={formState.city} name='city' className="outline-none text-gray-800 font-light text-sm" type="text" />
+                                </div>
+                                {formErrors.city ? <div className="text-xs pt-1 pl-2 text-red-500">Please fill out this field</div> : <></>}
                             </div>
-                            <div className="border w-72 rounded-sm bg-white px-2 py-2">
-                                <div className="text-xs text-gray-400">State</div>
-                                <input id='state' defaultValue={formState.state} name='state' className="outline-none text-gray-800 font-thin text-sm" type="text" />
+                            <div className="w-72">
+                                <div className={"border rounded-sm bg-white px-2 py-2 " + (formErrors.state ? "outline outline-red-500 outline-1" : "")}>
+                                    <div className={"text-xs text-gray-400 " + (formErrors.state ? "text-red-500" : "")}>State</div>
+                                    <input onBlur={(ele) => {if(!ele.target.value) setFormErrors({ ...formErrors, state : true })}} onChange={(ele) => {
+                                        setFormState({ ...formState, state : ele.target.value })
+                                        if(ele.target.value) setFormErrors({ ...formErrors, state : false })
+                                    }} id='state' defaultValue={formState.state} name='state' className="outline-none text-gray-800 font-light text-sm" type="text" />
+                                </div>
+                                {formErrors.state ? <div className="text-xs pt-1 pl-2 text-red-500">Please fill out this field</div> : <></>}
                             </div>
                         </div>
                         <div className="flex flex-row px-4 pb-4 space-x-4">
                             <div className="border w-72 rounded-sm bg-white px-2 py-2">
                                 <div className="text-xs text-gray-400 ">Landmark (Optional)</div>
-                                <input id='landmark' defaultValue={formState.landmark} name='landmark' className="outline-none font-thin text-sm" type="text" />
+                                <input id='landmark' onChange={(ele) => { setFormState({ ...formState, landmark : ele.target.value }) }} defaultValue={formState.landmark} name='landmark' className="outline-none text-gray-800 font-light text-sm" type="text" />
                             </div>
                             <div className="border w-72 rounded-sm bg-white px-2 py-2">
                                 <div className="text-xs text-gray-400 ">Alternate Phone (Optional)</div>
-                                <input id='alternatephone' defaultValue={formState.alternatephone} name='alternatephone' className="outline-none font-thin text-sm" type="text" />
+                                <input id='alternatephone' onChange={(ele) => { setFormState({ ...formState, alternatephone : ele.target.value }) }} defaultValue={formState.alternatephone} name='alternatephone' className="outline-none text-gray-800 font-light text-sm" type="text" />
                             </div>
                         </div>
                         <div className="flex flex-row px-4 pt-6 space-x-10">
