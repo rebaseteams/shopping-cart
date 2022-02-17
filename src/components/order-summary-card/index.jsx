@@ -40,7 +40,6 @@ export function renderOrderSummaryCard({ email, itemsService, cartService }) {
                 <div className={"bg-white " + editable}>
                     {items.map((val) => {
                         const item = itemsService.getItem(val.id);
-                        console.log(item);
                         return <div className="border-t px-6 py-6">
                         <div className="flex flex-row justify-between mb-5">
                             <div className="flex flex-row">
