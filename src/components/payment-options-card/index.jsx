@@ -7,6 +7,7 @@ export function renderPaymentOptionsCard() {
         const [editable, setEditable] = useState("");
         const [viewable, setViewable] = useState("hidden");
         const [paymentDone, setPaymentDone] = useState(false);
+        const [upi, setUpi] = useState("");
         return <>
             <div className="border rounded-sm mb-5 shadow-sm">
                 <div className={"px-6 flex flex-row justify-between py-4 " + headBackground}>
@@ -40,21 +41,29 @@ export function renderPaymentOptionsCard() {
                         </div>
                     </div> :
                     <div className={"bg-white p-6 flex flex-row space-x-5 " + editable}>
-                        <div className="border w-72 rounded-sm bg-white px-2 py-2">
-                            <div className="text-xs text-gray-400">UPI</div>
-                            <input id='upi' name='upi' className="outline-none text-gray-800 font-thin text-sm" type="text" />
+                        <div className="w-72">
+                            <div className={"border rounded-sm bg-white px-2 py-2 " + (!upi ? "outline outline-red-500 outline-1" : "")}>
+                                <div className={"text-xs text-gray-400 " + (!upi ? "text-red-500" : "")}>UPI</div>
+                                <input onChange={(ele) => {
+                                    setUpi(ele.target.value);
+                                }} id='upi' name='upi' className="outline-none text-black font-light text-sm" type="text" />
+                            </div>
+                            {!upi ? <div className="text-xs pt-1 pl-2 text-red-500">Please fill out this field</div> : <></>}
                         </div>
-                        <button
-                            onClick={() => {
-                                setHeadBackground("bg-white");
-                                setViewable("");
-                                setEditable("hidden");
-                                setHeadTextColor("text-gray-500");
-                                setPaymentDone(true);
-                            }}
-                            className="bg-orange-500 text-center text-white px-14 py-3 shadow rounded-sm">
-                            COMPLETE PAYMENT
-                        </button>
+                        <div>
+                            <button
+                                onClick={() => {
+                                    if(!upi) return;
+                                    setHeadBackground("bg-white");
+                                    setViewable("");
+                                    setEditable("hidden");
+                                    setHeadTextColor("text-gray-500");
+                                    setPaymentDone(true);
+                                }}
+                                className="bg-orange-500 text-center text-white px-14 py-3 shadow rounded-sm">
+                                COMPLETE PAYMENT
+                            </button>
+                        </div>
                     </div>
                 }
             </div>
