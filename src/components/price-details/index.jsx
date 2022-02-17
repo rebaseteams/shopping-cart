@@ -1,5 +1,10 @@
-export function renderPriceDetails({ numberOfItems, price, total }) {
-    return function priceDetails() {
+export function renderPriceDetails({ itemsService, cartService }) {
+    return function PriceDetails() {
+        let total = 0;
+        cartService.getCartItems().forEach((val,index,arr) => {
+            const item = itemsService.getItem(val.id);
+            total = total + item.price * val.quantity;
+        })
         return <>
             <div className="border outline-slate-300 rounded-sm bg-white shadow-sm">
                 <div className="border-b h-11 flex items-center pl-5 text-slate-500 font-medium">
@@ -8,10 +13,10 @@ export function renderPriceDetails({ numberOfItems, price, total }) {
                 <div>
                     <div className="flex flex-row h-12 justify-between items-center px-5 w-full">
                         <div>
-                            Price ({numberOfItems} item)
+                            Price ({cartService.getCount()} item)
                         </div>
                         <div >
-                            ₹{price}
+                            ₹{total}
                         </div>
                     </div>
                     <div className="px-5">

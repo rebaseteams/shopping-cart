@@ -12,5 +12,4 @@ test('renders payment options card successfully', () => {
   textElement = screen.getByText(/change/i);
   expect(textElement).toBeInTheDocument();
   fireEvent.click(screen.getByTestId('change'));
-  expect(window.alert).toBeCalledWith('change clicked');
 });

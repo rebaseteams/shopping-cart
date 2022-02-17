@@ -1,6 +1,6 @@
 
 export function renderCheckout(renderPriceDetails, renderLoginCard, renderDeliveryAddressCard, renderOrderSummaryCard, renderPaymentOptionsCard, itemsService, cartService) {
-  const PriceDetails = renderPriceDetails({ numberOfItems: 1, price: 1000, total: 1000 });
+  const PriceDetails = renderPriceDetails({ itemsService, cartService });
   const LoginCard = renderLoginCard({
     name: 'PRASANA SHINDE',
     mobile: '+918989898989'

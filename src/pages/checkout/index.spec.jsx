@@ -28,8 +28,6 @@ test('renders checkout page successfully', () => {
   expect(textElement).toBeInTheDocument();
   textElement = screen.getByText(/price details/i);
   expect(textElement).toBeInTheDocument();
-  textElement = screen.getByText('Price (1 item)');
-  expect(textElement).toBeInTheDocument();
   textElement = screen.getByText(/delivery charges/i);
   expect(textElement).toBeInTheDocument();
   textElement = screen.getByText(/total payable/i);
