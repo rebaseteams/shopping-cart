@@ -6,7 +6,7 @@ export function renderHeader(cartService, useCartCount = defaultCartCount) {
     const { cartCount } = useCartCount(cartService);
     return <>
       <div className="sticky top-0 z-50 bg-blue-500 h-16 flex justify-center text-white">
-        <Link to="/" className="flex items-center pr-3">
+        <Link data-testid="app-logo" to="/" className="flex items-center pr-3">
           <img className="h-5" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png" alt="logo" />
         </Link>
         <div className="flex items-center pr-56">
@@ -17,17 +17,17 @@ export function renderHeader(cartService, useCartCount = defaultCartCount) {
             </button>
           </div>
         </div>
-        <div className=" text-blue-500 flex items-center pr-8">
+        <div className="cursor-pointer text-blue-500 flex items-center pr-8">
           <div onClick={() => alert('login clicked')} data-testid="login" className="bg-white font-medium text-base h-8 rounded-sm w-24 flex items-center justify-center">
             Login
           </div>
         </div>
-        <div onClick={() => alert("more clicked")} data-testid="more" className="flex items-center pr-8">
+        <div onClick={() => alert("more clicked")} data-testid="more" className="cursor-pointer flex items-center pr-8">
           More
         </div>
         <div className="flex items-center pr-1">
         </div>
-        <Link to="/checkout" className="flex items-center">
+        <Link data-testid="cart" to="/checkout" className="flex items-center">
           {
             // If cartCount id zero do not show the count
             cartCount > 0 ? <div className="border relative text-xs left-5 px-1 rounded-full bg-orange-500 bottom-3">{cartCount}</div> : null

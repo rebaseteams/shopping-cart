@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { GlobalProvider } from "./providers/context";
+import { CartCount } from "./providers/context";
 import { renderHeader } from './components/header';
 import { renderItemsList } from './pages/items-list';
 import { renderItem } from './pages/item';
@@ -24,7 +24,7 @@ export function renderApp(services ) {
     const [ count, setCount ] = useState(services.cart.getCount()); 
     return (
       <BrowserRouter>
-        <GlobalProvider.Provider value={{ value: count, setCount}}>
+        <CartCount.Provider value={{ value: count, setCount}}>
           <Header />
           <Routes>
             <Route path='/' element={<ItemsList />} />
@@ -33,7 +33,7 @@ export function renderApp(services ) {
             <Route path="/page-not-found" element={<PageNotFound />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
-        </GlobalProvider.Provider>
+        </CartCount.Provider>
       </BrowserRouter>
     )
   }

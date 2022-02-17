@@ -6,12 +6,12 @@ import { renderLoading } from "../../components/loading";
 import { renderRating } from "../../components/rating";
 import { useItem as defaultUseItem } from "../../customHooks/useItem";
 import { renderItemsList } from "../items-list";
-import { GlobalProvider } from "../../providers/context";
+import { CartCount } from "../../providers/context";
 
-export function renderItem(itemsService, cartService, useItem = defaultUseItem, provider = GlobalProvider) {
+export function renderItem(itemsService, cartService, useItem = defaultUseItem, cartCountProvider = CartCount) {
   const ItemList = renderItemsList(renderItemCard, itemsService);
   return function Item() {
-    const { loading, product, setCount } = useItem(itemsService, provider);
+    const { loading, product, setCount } = useItem(itemsService, cartCountProvider);
 
     const onBuy = () => {
       alert("On Buy Under Development"); 

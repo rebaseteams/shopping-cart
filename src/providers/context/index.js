@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-export const GlobalProvider = createContext({
+export const CartCount = createContext({
   count: 0,
   setCount: (n) => {},
 });
