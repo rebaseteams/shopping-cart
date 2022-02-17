@@ -27,7 +27,7 @@ export class ItemsRepo {
         return [];
     }
 
-    createItem = ({ name, images, color, price, description, priceUnit, star = 0, outOfStock, stockCount, reviewCount = 0, details, highlights, path, category, subCategory }) => {
+    createItem = ({ name, images, color, price, description, priceUnit, star, rating, outOfStock, stockCount, reviewCount, details, highlights, path, category, subCategory, discount }) => {
         const items = this.getItems();
         const newItem = {
             id : uuid(),
@@ -38,6 +38,7 @@ export class ItemsRepo {
             description,
             priceUnit,
             star,
+            rating,
             outOfStock,
             stockCount,
             reviewCount,
@@ -45,6 +46,7 @@ export class ItemsRepo {
             highlights,
             path,
             category,
+            discount,
             subCategory,
         }
         items.push(newItem);

@@ -1,9 +1,7 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { BreadCrumb } from "../../components/breadcrumb";
 import { renderItemCard } from "../../components/item";
 import { renderLoading } from "../../components/loading";
-import { renderRating } from "../../components/rating";
 import { useItem as defaultUseItem } from "../../customHooks/useItem";
 import { renderItemsList } from "../items-list";
 import { CartCount } from "../../providers/context";
@@ -27,68 +25,60 @@ export function renderItem(itemsService, cartService, useItem = defaultUseItem, 
 
     if (!product) return <div className="bg-black"><h4>Error</h4></div>;
 
-    const Rating = renderRating(product.star);
-
     return (
       <div className="bg-white pt-5">
-        <BreadCrumb path={product.path} name={product.name} />
-        <div className="pt-5">
-          <div className="max-w-2xl mx-auto sm:px-6 sm:grid-cols-1 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
-            <div className="aspect-h-4 rounded-lg overflow-hidden lg:block">
+        <div className="flex">
+          <div className="flex flex-col">
+            {
+              product.images.map((img) => {
+                return <img className="w-14 h-14 m-1 border-2" src={img} alt={img} />
+              })
+            }
+          </div>
+
+
+          <div className="flex flex-row justify-start w-full">
+            <div className="flex w-96 flex-col items-start">
               <img
-                src={product.images[0]}
-                alt="Two each of gray, white, and black shirts laying flat."
-                className="w-auto h-auto object-center object-cover"
+                    src={product.images[0]}
+                    alt="Two each of gray, white, and black shirts laying flat."
+                    className="w-full rounded-lg h-72 object-center object-cover"
               />
               {renderForm(onBuy, onAddCart)}
             </div>
-            <div className="aspect-h-4 px-4 lg:gap-y-8 rounded-lg lg:col-span-2 overflow-hidden lg:block">
-              <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
-                  {product.name}
-                </h1>
-              </div>
-              <div className="space-y-6 py-6">
-                <p className="text-base text-gray-900">{product.description}</p>
-              </div>
 
-              <div className="mt-4 lg:mt-0 lg:row-span-3">
-                <h2 className="sr-only">Product information</h2>
-                <p className="text-3xl text-gray-900">
-                  ₹
-                  {product.price}
-                </p>
+            <div className="px-5 w-full flex flex-col h-screen overflow-y-auto">
+              <span className="font-medium">{product.name}</span>
 
-                <div className="mt-6">
-                  <h3 className="sr-only">Reviews</h3>
-                  <div className="flex items-center">
-                    <div className="flex items-center">
-                      <Rating />
-                    </div>
-                    <p className="sr-only">${product.star} out of 5 stars</p>
-                    <a
-                      href="#"
-                      className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      {product.reviewCount} review
-                    </a>
-                  </div>
+              <div className="flex">
+                <div className="flex px-1 text-white bg-green-600 rounded w-fit">
+                  {product.star}
+                  <img alt="rating" className="m-1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg==" />
+                </div>
+                <div className="ml-5 text-gray-500 font-bold">
+                  <p>{product.rating} rating and {product.reviewCount} reviews</p>
                 </div>
               </div>
 
-              <div className="py-6">
+              <div className="my-5 font-medium flex items-center">
+                <span className="text-4xl">₹ {product.price - (product.price * ( product.discount/100 ) )}</span>
+                <span className="ml-6 line-through text-gray-700 text-xl">₹ {product.price}</span>
+                <span className="ml-6 text-green-600 text-xl">{product.discount}% Off</span>
+              </div>
+
+              <div className="border flex flex-col">
+                <div className="border font-medium p-3"> Product Description </div>
+                <div className="p-3">{product.description}</div>
+              </div>
+
+              <div className="border mt-5 flex flex-col">
                 {renderHighlights(product)}
-                <div className="py-6">
-                  <h2 className="text-sm font-bold text-gray-900">Details</h2>
-                  <div className="mt-4 space-y-6">
-                    <p className="text-sm text-gray-600">{product.details}</p>
-                  </div>
-                </div>
               </div>
+            <ItemList />
             </div>
+
           </div>
         </div>
-        <ItemList />
       </div>
     );
   };
@@ -97,18 +87,18 @@ export function renderItem(itemsService, cartService, useItem = defaultUseItem, 
 function renderForm(onBuy, onAddCart) {
   return (
     <>
-      <div className="mt-10 flex">
+      <div className="mt-5 w-full flex">
           <button
             data-testid="buy"
             onClick={onBuy}
-            className="mr-5 bg-blue-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="mx-1 w-full bg-orange-500 border border-transparent rounded-sm py-3 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
           >
             Buy
           </button>
         <button
           data-testid="add-to-bag"
           onClick={onAddCart}
-          className="mr-5 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="mx-1 w-full bg-orange-600 border border-transparent rounded-sm py-3 flex items-center justify-center text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
         >
           Add to bag
         </button>
@@ -120,8 +110,8 @@ function renderForm(onBuy, onAddCart) {
 function renderHighlights(product) {
   return (
     <>
-      <h3 className="text-sm font-bold text-gray-900">Highlights</h3>
-      <div className="mt-4">
+      <h3 className="p-3 font-medium text-gray-900">Highlights</h3>
+      <div className="p-3">
         <ul role="list" className="pl-4 list-disc text-sm space-y-2">
           {product.highlights.map((h, index) => {
             return (

@@ -7,12 +7,16 @@
         "description": "Light weight , Breathable Spacer Mesh. 3D Splash Printing on 3 Stripes & special grains printing on heel cap gives the shoe a vibrant & bold look. Ortholite sock liner for better cushioning. They feature a textile upper and a supportive cage that wraps aroundthe midfoot to give you stability where you need it most. Outsole : ADIWEAR: outsolefor best durability in high wear areas.",
         "priceUnit": "$",
         "stockCount": 100,
+        "star": 4.3,
+        "rating" : 15,
+        "reviewCount" : 4,
         "outOfStock": false,
-        "details": "Dtails",
+        "details": "Ortholite sock liner for better cushioning. They feature a textile upper and a supportive cage that wraps aroundthe midfoot to give you stability where you need it most. Outsole : ADIWEAR: outsolefor best durability in high wear areas.",
         "highlights": ["Shoe Width: Medium", "Adidas Men Running sports shoes"],
         "path": [{ "name": "Mens", "url": "#" }, { "name": "shoes", "url": "#" }],
         "category": "Mens",
-        "subCategory": "Shoes"
+        "subCategory": "Shoes",
+        "discount" : 12
     },
     {
         "name": "Pigeon Favourite Electric Kettle  (1.5 L, Silver, Black)",
@@ -21,12 +25,16 @@
         "description": "Light weight , Breathable Spacer Mesh. 3D Splash Printing on 3 Stripes & special grains printing on heel cap gives the shoe a vibrant & bold look. Ortholite sock liner for better cushioning. They feature a textile upper and a supportive cage that wraps aroundthe midfoot to give you stability where you need it most. Outsole : ADIWEAR: outsolefor best durability in high wear areas.",
         "priceUnit": "$",
         "stockCount": 100,
+        "star": 3.9,
+        "rating" : 15,
+        "review" : 4,
         "outOfStock": false,
-        "details": "Dtails",
+        "details": "Details",
         "highlights": ["Shoe Width: Medium", "Adidas Men Running sports shoes"],
         "path": [{ "name": "Mens", "url": "#" }, { "name": "shoes", "url": "#" }],
         "category": "Mens",
-        "subCategory": "Shoes"
+        "subCategory": "Shoes",
+        "discount" : 8
     },
     {
         "name": "Embellished Bollywood Georgette Saree",
@@ -36,12 +44,16 @@
         "description": "Light weight , Breathable Spacer Mesh. 3D Splash Printing on 3 Stripes & special grains printing on heel cap gives the shoe a vibrant & bold look. Ortholite sock liner for better cushioning. They feature a textile upper and a supportive cage that wraps aroundthe midfoot to give you stability where you need it most. Outsole : ADIWEAR: outsolefor best durability in high wear areas.",
         "priceUnit": "$",
         "stockCount": 100,
+        "star": 3,
+        "rating" : 15,
+        "review" : 4,
         "outOfStock": false,
-        "details": "Dtails",
+        "details": "Details",
         "highlights": ["Shoe Width: Medium", "Adidas Men Running sports shoes"],
         "path": [{ "name": "Mens", "url": "#" }, { "name": "shoes", "url": "#" }],
         "category": "Womens",
-        "subCategory": "Shoes"
+        "subCategory": "Shoes",
+        "discount" : 40
     },
     {
         "name": "Solid Men Mandarin Collar T-Shirt",
@@ -50,12 +62,16 @@
         "price": "299",
         "description": "Light weight , Breathable Spacer Mesh. 3D Splash Printing on 3 Stripes & special grains printing on heel cap gives the shoe a vibrant & bold look. Ortholite sock liner for better cushioning. They feature a textile upper and a supportive cage that wraps aroundthe midfoot to give you stability where you need it most. Outsole : ADIWEAR: outsolefor best durability in high wear areas.",
         "priceUnit": "$",
+        "star": 4.5,
+        "rating" : 15,
+        "review" : 4,
         "stockCount": 100,
         "outOfStock": false,
-        "details": "Dtails",
+        "details": "Details",
         "highlights": ["Shoe Width: Medium", "Adidas Men Running sports shoes"],
         "path": [{ "name": "Mens", "url": "#" }, { "name": "shoes", "url": "#" }],
         "category": "Mens",
-        "subCategory": "Cloths"
+        "subCategory": "Cloths",
+        "discount" : 16
     }
 ]
