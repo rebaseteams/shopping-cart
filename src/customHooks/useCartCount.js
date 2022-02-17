@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { GlobalProvider } from "../providers/context";
+import { CartCount } from "../providers/context";
 
 export function useCartCount () {
-  const { value } = useContext(GlobalProvider);
+  const { value } = useContext(CartCount);
   return {
     cartCount: value
   }
